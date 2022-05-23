@@ -9,8 +9,10 @@ class ApplicationTest {
         HessianProxyFactoryBean factory = new HessianProxyFactoryBean();
         factory.setServiceInterface(Hello.class);
         factory.setServiceUrl("http://localhost:8080/hello");
+        factory.setOverloadEnabled(true);
         factory.afterPropertiesSet();
         Hello hello = (Hello) factory.getObject();
         System.out.println(hello.hello());
+        System.out.println(hello.hello("bustard"));
     }
 }
